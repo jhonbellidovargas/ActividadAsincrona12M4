@@ -1,0 +1,80 @@
+<section class="container-sm">
+  <section class="alert alert-success" *ngIf="registroform.valid">
+    Gracias por comunicarte con nosotros
+  </section>
+  <form [formGroup]="registroform" (submit)="send()">
+    <section class="form-group m-3">
+      <label class="">Nombre</label>
+      <input
+        placeholder="Nombre *"
+        class="form-control"
+        type="text"
+        formControlName="nombre"
+        [class.is-invalid]="
+          nombre?.invalid && (nombre?.dirty || nombre?.touched)
+        "
+      />
+    </section>
+
+    <section class="form-group m-3">
+      <label class="">Email</label>
+      <input
+        placeholder="Email *"
+        class="form-control"
+        type="email"
+        formControlName="email"
+        [class.is-invalid]="email?.invalid && (email?.dirty || email?.touched)"
+      />
+    </section>
+
+    <section class="form-group m-3">
+      <label class="">Telefono</label>
+      <input
+        placeholder="Telefono *"
+        formControlName="telefono"
+        maxlength="8"
+        class="form-control"
+        type="text"
+        [class.is-invalid]="
+          telefono?.invalid && (telefono?.dirty || telefono?.touched)
+        "
+      />
+    </section>
+
+    <section class="form-group m-3">
+      <label class="">Asunto</label>
+      <input
+        placeholder="Asunto *"
+        class="form-control"
+        type="text"
+        formControlName="asunto"
+        [class.is-invalid]="
+          asunto?.invalid && (asunto?.dirty || asunto?.touched)
+        "
+      />
+    </section>
+
+    <section class="form-group m-3">
+      <label class="">Mensaje</label>
+      <input
+        placeholder="Mensaje *"
+        class="form-control"
+        type="text"
+        formControlName="mensaje"
+        [class.is-invalid]="
+          mensaje?.invalid && (mensaje?.dirty || mensaje?.touched)
+        "
+      />
+    </section>
+
+    <section class="form-group m-3 d-flex justify-content-center">
+      <button
+        [disabled]="registroform.invalid"
+        type="submit"
+        class="btn btn-primary m-1"
+      >
+        Enviar
+      </button>
+    </section>
+  </form>
+</section>
